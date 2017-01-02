@@ -13,10 +13,11 @@ module.exports = function (config) {
     preprocessors: {
       'app/tests/**/*.test.jsx': ['webpack', 'sourcemap']
     },
+    browserNoActivityTimeout: 100000,
     reporters: ['mocha'],
     client: {
       mocha: {
-        timeout: '5000'
+        timeout: '150000'
       }
     },
     webpack: webpackConfig,

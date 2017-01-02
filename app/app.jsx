@@ -8,16 +8,18 @@ var actions = require('actions');
 var store = require('configureStore').configure();
 
 
-store.subscribe(() => {
-  var state = store.getState();
+// store.subscribe(() => {
+//   var state = store.getState();
+//
+//   console.log('New state', state);
+//
+//   TodoAPI.setTodos(state.todos);
+// });
+//
+// var initialTodos = TodoAPI.getTodos();
+// store.dispatch(actions.addTodos(initialTodos));
 
-  console.log('New state', state);
-
-  TodoAPI.setTodos(state.todos);
-});
-
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(actions.startAddTodos());
 
 //require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();

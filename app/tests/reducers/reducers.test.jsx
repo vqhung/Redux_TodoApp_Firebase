@@ -55,15 +55,21 @@ describe('Reducers', () => {
         createdAt: 123,
         completedAt: 456
       }];
+      var update = {
+        completed: false,
+        completedAt: null
+      };
       var action = {
-        type: 'TOGGLE_TODO',
-        id: '123'
+        type: 'UPDATE_TODO',
+        id: todos[0].id,
+        update
       };
 
       var res = reducers.todosReducer(df(todos), df(action));
 
-      expect(res[0].completed).toBe(false);
-      expect(res[0].compledtedAt).toBe(undefined);
+      expect(res[0].completed).toBe(update.completed);
+      expect(res[0].compledtedAt).toBe(update.compledtedAt);
+      expect(res[0].text).toEqual(todos[0].text);
 
     });
     it('should add existing todos', () => {
